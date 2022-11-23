@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 					_putchar(*(n + i));
 				else
 				{
-					strcpy(temp, arguat);
+					strcpy(temp, (char *)arguat);
 					while (*(temp + i) != '\0' && i++)
 					_putchar(*(temp + i));
 				}
