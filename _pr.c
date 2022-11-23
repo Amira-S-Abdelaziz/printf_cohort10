@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 #include <stdarg.h>
 #include "main.h"
 /**
@@ -10,10 +9,9 @@
 */
 int _printf(const char *format, ...)
 {
-	unsigned int len = 0;
-	unsigned int i = 0;
+	unsigned int len = 0, i = 0, formsize = 0;
 	va_list arguat;
-	unsigned int formsize = 0;
+	int tempc;
 	char temp[100000] = "\0";
 
 	va_start(arguat, format);
@@ -24,11 +22,20 @@ int _printf(const char *format, ...)
 		if (*(format + formsize) == '%' &&
 				(*(format + formsize + 1) == 's' || *(format + formsize + 1) == 'c'))
 		{
+			if (*(format + formsize + 1) == 'c')
+			{
+				tempc = va_arg(arguat, int);
+				_putchar((char)tempc);
+				i++;
+			}
+			else
+			{
 			strcpy(temp, va_arg(arguat, char*));
 			while (*(temp + i) != '\0')
 			{
 				_putchar(*(temp + i));
 				i++;
+			}
 			}
 			len += i;
 			i = 0;
