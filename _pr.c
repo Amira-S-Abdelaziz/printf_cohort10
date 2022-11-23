@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	char temp[100000] = "\0";
 
 	va_start(arguat, format);
-	strcpy(po,va_arg(arguat, char*));
+	strcpy(po, va_arg(arguat, char*));
 	if (po[0] == '\0')
 		return (-1);
 	while (*(po + formsize) != '\0')
@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 		if (*(po + formsize) == '%' &&
 				(*(po + formsize + 1) == 's' || *(po + formsize + 1) == 'c'))
 		{
-			strcpy(temp,va_arg(arguat, char*));
+			strcpy(temp, va_arg(arguat, char*));
 			while (*(temp + i) != '\0')
 			{
 				_putchar(*(temp + i));
