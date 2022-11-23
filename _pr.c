@@ -13,7 +13,6 @@ int _printf(const char *format, ...)
 	va_list arguat;
 	int tempc;
 	char temp[100000] = "\0";
-	char *n = (char *)0;
 
 	va_start(arguat, format);
 	if (format[0] == '\0')
@@ -25,26 +24,27 @@ int _printf(const char *format, ...)
 		{
 			if (*(format + formsize + 1) == 'c')
 			{
-				tempc = va_arg(arguat, int), _putchar((char)tempc);
+				tempc = va_arg(arguat, int);
+				_putchar((char)tempc);
 				i++;
 			}
 			else
 			{
-				if (va_arg(arguat, char *) == NULL)
-					while (*(n + i) != '\0' && i++)
-					_putchar(*(n + i));
-				else
-				{
-					strcpy(temp, arguat);
-					while (*(temp + i) != '\0' && i++)
-					_putchar(*(temp + i));
-				}
+			strcpy(temp, va_arg(arguat, char*));
+			while (*(temp + i) != '\0')
+			{
+				_putchar(*(temp + i));
+				i++;
 			}
-			len += i, i = 0, formsize++;
+			}
+			len += i;
+			i = 0;
+			formsize++;
 		}
 		else
 		{
-			_putchar(*(format + formsize)), len++;
+			_putchar(*(format + formsize));
+			len++;
 		}
 		formsize++;
 	}
