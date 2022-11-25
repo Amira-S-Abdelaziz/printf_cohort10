@@ -13,10 +13,9 @@ int _printf(const char *format, ...)
 	va_list arguat;
 	int tempc;
 	char temp[100000] = "\0";
-	char *n = (char *)0;
 
 	va_start(arguat, format);
-	if (format[0] == '\0')
+	if (format == NULL)
 		return (-1);
 	while (*(format + formsize) != '\0')
 	{
@@ -25,26 +24,25 @@ int _printf(const char *format, ...)
 		{
 			if (*(format + formsize + 1) == 'c')
 			{
-				tempc = va_arg(arguat, int), _putchar((char)tempc);
-				i++;
+				c(va_arg(arguat, int), i++;
 			}
 			else
 			{
-				if (va_arg(arguat, char *) == NULL)
-					while (*(n + i) != '\0' && i++)
-					_putchar(*(n + i));
-				else
-				{
-					strcpy(temp, (char *)arguat);
-					while (*(temp + i) != '\0' && i++)
-					_putchar(*(temp + i));
-				}
+				i = s(va_arg(arguat, char *));
 			}
 			len += i, i = 0, formsize++;
 		}
+		else if (*(format + formsize) == '%' && *(format + formsize + 1) == '%')
+		{
+			_putchar(*(format + formsize)), len++, formsize++;
+		}
+		else if (*(format + formsize) == '%')
+		{
+		formsize++, continue;
+		}
 		else
 		{
-			_putchar(*(format + formsize)), len++;
+		_putchar(*(format + formsize)), len++;
 		}
 		formsize++;
 	}
