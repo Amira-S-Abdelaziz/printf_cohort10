@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#inlcude "main.h"
+#include "main.h"
 /**
 *c - function
 *@a: var

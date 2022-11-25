@@ -11,8 +11,6 @@ int _printf(const char *format, ...)
 {
 	unsigned int len = 0, i = 0, formsize = 0;
 	va_list arguat;
-	int tempc;
-	char temp[100000] = "\0";
 
 	va_start(arguat, format);
 	if (format == NULL)
@@ -24,7 +22,7 @@ int _printf(const char *format, ...)
 		{
 			if (*(format + formsize + 1) == 'c')
 			{
-				c(va_arg(arguat, int), i++;
+				c(va_arg(arguat, int)), i++;
 			}
 			else
 			{
@@ -40,7 +38,8 @@ int _printf(const char *format, ...)
 		}
 		else if (*(format + formsize) == '%')
 		{
-		formsize++, continue;
+		formsize++;
+		continue;
 		}
 		else
 		{
