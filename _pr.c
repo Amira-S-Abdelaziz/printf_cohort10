@@ -24,13 +24,30 @@ int _printf(const char *format, ...)
 		{
 			if (*(format + formsize + 1) == 'c')
 			{
+<<<<<<< HEAD
 				c(va_arg(arguat, int), i++;
 			}
 			else
 			{
 				i = s(va_arg(arguat, char *));
+=======
+				tempc = va_arg(arguat, int);
+				_putchar((char)tempc);
+				i++;
 			}
-			len += i, i = 0, formsize++;
+			else
+			{
+			strcpy(temp, va_arg(arguat, char*));
+			while (*(temp + i) != '\0')
+			{
+				_putchar(*(temp + i));
+				i++;
+			}
+>>>>>>> afac56125047f44d364a8ec3652d035c54faa3f5
+			}
+			len += i;
+			i = 0;
+			formsize++;
 		}
 		else if (*(format + formsize) == '%' && *(format + formsize + 1) == '%')
 		{
@@ -42,7 +59,12 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+<<<<<<< HEAD
 		_putchar(*(format + formsize)), len++;
+=======
+			_putchar(*(format + formsize));
+			len++;
+>>>>>>> afac56125047f44d364a8ec3652d035c54faa3f5
 		}
 		formsize++;
 	}
