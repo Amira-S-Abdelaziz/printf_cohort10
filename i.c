@@ -33,8 +33,8 @@ int iord(long int a)
 	i--;
 	while (i != -1)
 	{
-		_putchar(*(s + i));
-		i--;
+		_putchar(*(s + i)), i--;
 	}
+	free(s);
 	return (sz + flag);
 }
