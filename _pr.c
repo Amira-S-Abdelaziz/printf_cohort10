@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			else if (*(format + formsize + 1) == 's')
 				i = s(va_arg(arguat, char *));
 			else
-				i = iord(va_arg(arguat, int));
+				i = iord(va_arg(arguat, long int));
 			len += i;
 			i = 0;
 			formsize++;

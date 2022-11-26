@@ -7,7 +7,7 @@
 *@a: var
 *Return: value
 */
-int iord(int a)
+int iord(long int a)
 {
 	int sz = 0;
 
