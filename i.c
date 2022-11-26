@@ -21,7 +21,7 @@ int iord(long int a)
 	} while (a != 0);
 	s = (char *) malloc(sizeof(char) * (sz + flag));
 	do {
-		*(s + i) = (a2 % 10) + '0';
+		*(s + i) = (abs((int)(a2 % 10))) + '0';
 		i++;
 		a2 = a2 / 10;
 	} while (a2 != 0);
