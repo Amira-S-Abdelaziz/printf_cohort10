@@ -47,5 +47,6 @@ int _printf(const char *format, ...)
 		}
 		formsize++;
 	}
+	va_end(arguat);
 	return (len);
 }
