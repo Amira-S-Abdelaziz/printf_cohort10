@@ -18,16 +18,15 @@ int _printf(const char *format, ...)
 	while (*(format + formsize) != '\0')
 	{
 		if (*(format + formsize) == '%' &&
-				(*(format + formsize + 1) == 's' || *(format + formsize + 1) == 'c'))
+				(*(format + formsize + 1) == 's' || *(format + formsize + 1) == 'c' ||
+				 *(format + formsize + 1) == 'i' || *(format + formsize + 1) == 'd'))
 		{
 			if (*(format + formsize + 1) == 'c')
-			{
-				c(va_arg(arguat, int)), i++;
-			}
-			else
-			{
+				i = c(va_arg(arguat, int));
+			else if (*(format + formsize + 1) == 's')
 				i = s(va_arg(arguat, char *));
-			}
+			else
+				i = iord(va_arg(arguat, int));
 			len += i;
 			i = 0;
 			formsize++;
