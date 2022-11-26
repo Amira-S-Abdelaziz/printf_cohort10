@@ -11,12 +11,10 @@ int iord(int a)
 {
 	int sz = 0;
 
-	do
-	{
+	do {
 		_putchar(a % 10 + '0');
 		sz++;
 		a = a / 10;
-	}
-	while (a != 0);
+	} while (a != 0);
 	return (sz);
 }
