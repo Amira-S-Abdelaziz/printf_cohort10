@@ -5,6 +5,6 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int c(int a);
 int s(char *a);
-int iord(int a);
+int iord(long int a);
 
 #endif
